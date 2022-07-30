@@ -3,7 +3,8 @@ int d2 = 250;    // .25 second delay
 int d3 = 500;    // .5 second delay
 int d4 = 1000;   // 1 second delay
 
-int delays = {d1, d2, d3, d4};   // array holding all delay values
+// array holding all delay values
+int delays = {d1, d2, d3, d4};
 
 // initialize all pin variables
 int pin1 = 2;
@@ -37,7 +38,6 @@ int enenPinCount = 8;
 int oddPins = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
 int oddPinCount = 8;
 
-
 // function definitions below this line, these are the lighting patterns
 
 // Function array for pulling a random member and executing
@@ -54,5 +54,4 @@ void loop(){
 // call random function from the array
     int i = random(0); // update to number of functions+1
     (*pattern[i])();
-
 }
