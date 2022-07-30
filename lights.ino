@@ -1,3 +1,11 @@
+int d1 = 100;    // .1 second delay
+int d2 = 250;    // .25 second delay
+int d3 = 500;    // .5 second delay
+int d4 = 1000;   // 1 second delay
+
+int delays = {d1, d2, d3, d4};   // array holding all delay values
+
+// initialize all pin variables
 int pin1 = 2;
 int pin2 = 3;
 int pin3 = 4;
@@ -15,13 +23,21 @@ int pin14 = A1;
 int pin15 = A2;
 int pin16 = A3;
 
+// array containing all pins and pin count
 int allPins = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16};
+int allPinCount = 16;
 
-int pinCount = 16
+// array holding all even numbered pins and pin count
+int evenPins = {pin2, pin4, pin6, pin8, pin10, pin12, pin14, pin16};
+int enenPinCount = 8;
+
+// array golding all odd pins and pin count
+int oddPins = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
+int oddPinCount = 8;
 
 void setup(){
 
-for(int i=0;i<pinCount;i++){
+for(int i=0;i<allPinCount;i++){
     pinMode(allPins[i], OUTPUT);
 }
 
