@@ -40,19 +40,33 @@ int oddPinCount = 8;
 
 // function definitions below this line, these are the lighting patterns
 
+void chaseLowHigh(){
+    int count = 0;
+    while (count < 10){
+        for(int i=0; i<allPinCount; i++){
+            digitalWrite(allPins[i], HIGH);
+            delay(d1);
+            digitalWrite(allPins[i], LOW);
+            delay(d1);
+            count++;
+            }
+    }
+}
+
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
     // function names here separated by comma
+    chaseLowHigh(),
 };
 
 void setup(){
-    for(int i=0;i<allPinCount;i++){
+    for(int i=0; i<allPinCount; i++){
         pinMode(allPins[i], OUTPUT);
      };
 }
 
 void loop(){
 // call random function from the array
-    int i = random(0); // update to number of functions+1
+    int i = random(2); // update to number of functions+1
     (*pattern[i])();
 }
