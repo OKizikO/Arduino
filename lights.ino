@@ -48,6 +48,6 @@ for(int i=0;i<allPinCount;i++){
 
 void loop(){
 
-// call function patterns here, once running will loopmthrough top to bottom
+// call function patterns here, once running will loop through top to bottom
 
 }
