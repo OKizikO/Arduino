@@ -4,7 +4,7 @@ int d3 = 500;    // .5 second delay
 int d4 = 1000;   // 1 second delay
 
 // array holding all delay values
-int delays = {d1, d2, d3, d4};
+int delays[] = {d1, d2, d3, d4};
 
 // initialize all pin variables
 int pin1 = 2;
@@ -27,43 +27,32 @@ int pin16 = A3;
 // define all pin arrays here 
 
 // array containing all pins and pin count
-int allPins = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16};
+int allPins[] = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16};
 int allPinCount = 16;
 
 // array holding all even numbered pins and pin count
-int evenPins = {pin2, pin4, pin6, pin8, pin10, pin12, pin14, pin16};
+int evenPins[] = {pin2, pin4, pin6, pin8, pin10, pin12, pin14, pin16};
 int enenPinCount = 8;
 
 // array golding all odd pins and pin count
-int oddPins = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
+int oddPins[] = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
 int oddPinCount = 8;
 
 // function definitions below this line, these are the lighting patterns
-void chaseLowHigh(){
-    int count = 0;
-    do{
-        count = count++;
-        for(int i=0;i<allPinCount;i++){
-            digitalWrite(allPins[i], HIGH);
-            delay(d1);
-            digitalWrite(allPins[i], LOW);
-            } while (x < 10) 
-        }
-}
 
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
     // function names here separated by comma
-    chaseLowHigh(),
 };
 
 void setup(){
     for(int i=0;i<allPinCount;i++){
         pinMode(allPins[i], OUTPUT);
+     };
 }
 
 void loop(){
 // call random function from the array
-    int i = random(2); // update to number of functions+1
+    int i = random(0); // update to number of functions+1
     (*pattern[i])();
 }
