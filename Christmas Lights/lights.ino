@@ -40,14 +40,19 @@ int oddPinCount = 8;
 
 // function definitions below this line, these are the lighting patterns
 
-void setup(){
+// Function array for pulling a random member and executing
+void (*pattern[])(void) = {
+    // function names here separated by comma
+};
 
-for(int i=0;i<allPinCount;i++){
-    pinMode(allPins[i], OUTPUT);
+void setup(){
+    for(int i=0;i<allPinCount;i++){
+        pinMode(allPins[i], OUTPUT);
 }
 
 void loop(){
-
-// call function patterns here, once running will loop through top to bottom
+// call random function from the array
+    int i = random(0); // update to number of functions+1
+    (*pattern[i])();
 
 }
