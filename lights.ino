@@ -23,6 +23,8 @@ int pin14 = A1;
 int pin15 = A2;
 int pin16 = A3;
 
+// define all pin arrays here 
+
 // array containing all pins and pin count
 int allPins = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16};
 int allPinCount = 16;
@@ -35,6 +37,9 @@ int enenPinCount = 8;
 int oddPins = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
 int oddPinCount = 8;
 
+
+// function definitions below this line, these are the lighting patterns
+
 void setup(){
 
 for(int i=0;i<allPinCount;i++){
@@ -43,6 +48,6 @@ for(int i=0;i<allPinCount;i++){
 
 void loop(){
 
-
+// call function patterns here, once running will loopmthrough top to bottom
 
 }
