@@ -55,8 +55,7 @@ void chaseLowHigh(){
 
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
-    // function names here separated by comma
-    chaseLowHigh(),
+  chaseLowHigh
 };
 
 void setup(){
