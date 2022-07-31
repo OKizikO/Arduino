@@ -53,9 +53,31 @@ void chaseLowHigh(){
     }
 }
 
+void alternateEvenOdd(){
+  int loopCount = 0;
+  while(loopCount < 5){
+    for(int i=0; i<8; i++){
+      digitalWrite(evenPins[i], HIGH);
+    }
+    delay(d4);
+    for(int i=0; i<8; i++){
+      digitalWrite(evenPins[i], LOW);
+   }
+    for(int i=0; i<8; i++){
+      digitalWrite(oddPins[i], HIGH);
+   }
+   delay(d4);
+   for(int i=0; i<8; i++){
+      digitalWrite(oddPins[i], LOW);
+   }
+   loopCount++;
+ }
+}
+
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
-  chaseLowHigh
+  chaseLowHigh,
+  alternateEvenOdd
 };
 
 void setup(){
@@ -66,6 +88,6 @@ void setup(){
 
 void loop(){
 // call random function from the array
-    int i = random(2); // update to number of functions+1
+    int i = random(3); // update to number of functions+1
     (*pattern[i])();
 }
