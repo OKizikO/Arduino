@@ -42,14 +42,14 @@ int oddPinCount = 8;
 
 void chaseLowHigh(){
     int count = 0;
-    while (count < 10){
-        for(int i=0; i<allPinCount; i++){
+    while (count < 5){
+        for(int i=0; i<16; i++){
             digitalWrite(allPins[i], HIGH);
             delay(d1);
             digitalWrite(allPins[i], LOW);
             delay(d1);
-            count++;
             }
+            count++;
     }
 }
 
@@ -88,6 +88,6 @@ void setup(){
 
 void loop(){
 // call random function from the array
-    int i = random(3); // update to number of functions+1
+    int i = random(2); // update to number of functions+1
     (*pattern[i])();
 }
