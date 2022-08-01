@@ -106,6 +106,6 @@ void setup(){
 
 void loop(){
 // call random function from the array
-    int i = random(3); // update to number of functions+1
+    int i = random(3); // update to number of functions+1 0 included 
     (*pattern[i])();
 }
