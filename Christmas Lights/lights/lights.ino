@@ -45,50 +45,50 @@ int oddPinCount = 8;
 // function definitions below this line, these are the lighting patterns
 
 void chaseLowHigh(){
-    int count = 0;
-    while (count < 5){
-        for(int i=0; i<16; i++){
-            digitalWrite(allPins[i], HIGH);
-            delay(d1);
-            digitalWrite(allPins[i], LOW);
-            delay(d1);
-            }
-            count++;
-    }
+   int count = 0;
+   while (count < 5){
+      for(int i=0; i<16; i++){
+         digitalWrite(allPins[i], HIGH);
+         delay(d1);
+         digitalWrite(allPins[i], LOW);
+         delay(d1);
+         }
+         count++;
+      }
 }
 
 void chaseHighLow(){
-    int count = 0;
-    while (count < 5){
-        for(int i=0; i<16; i++){
-            digitalWrite(allPinsReverse[i], HIGH);
-            delay(d1);
-            digitalWrite(allPinsReverse[i], LOW);
-            delay(d1);
-            }
-            count++;
-    }
+   int count = 0;
+   while (count < 5){
+      for(int i=0; i<16; i++){
+         digitalWrite(allPinsReverse[i], HIGH);
+         delay(d1);
+         digitalWrite(allPinsReverse[i], LOW);
+         delay(d1);
+         }
+         count++;
+       }
 }
 
 void alternateEvenOdd(){
-  int loopCount = 0;
-  while(loopCount < 5){
-    for(int i=0; i<8; i++){
-      digitalWrite(evenPins[i], HIGH);
-    }
-    delay(d4);
-    for(int i=0; i<8; i++){
-      digitalWrite(evenPins[i], LOW);
-   }
-    for(int i=0; i<8; i++){
-      digitalWrite(oddPins[i], HIGH);
-   }
-   delay(d4);
-   for(int i=0; i<8; i++){
-      digitalWrite(oddPins[i], LOW);
-   }
+   int loopCount = 0;
+   while(loopCount < 5){
+      for(int i=0; i<8; i++){
+         digitalWrite(evenPins[i], HIGH);
+      }
+      delay(d4);
+      for(int i=0; i<8; i++){
+         digitalWrite(evenPins[i], LOW);
+      }
+      for(int i=0; i<8; i++){
+         digitalWrite(oddPins[i], HIGH);
+      }
+      delay(d4);
+      for(int i=0; i<8; i++){
+         digitalWrite(oddPins[i], LOW);
+      }
    loopCount++;
- }
+   }
 }
 
 // Function array for pulling a random member and executing
