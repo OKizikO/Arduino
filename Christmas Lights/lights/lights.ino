@@ -80,11 +80,29 @@ void alternateEvenOdd(){
    }
 }
 
+void randomOneByOne(){
+   int count = 0;
+   while(count < 16){
+      int trigger = random(0,16);
+      if(allPins[trigger] == HIGH){
+         delay(ranDelay);
+         digitalWrite(allPins[trigger], LOW);
+      }
+      delay(ranDelay);
+      digitalWrite(allPins[trigger], HIGH);
+      count++;
+   }
+   for(int i=0; i<16; i++){
+      digitalWrite(allPins[i], LOW);
+   }
+}
+
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
   chaseLowHigh,
   alternateEvenOdd,
-  chaseHighLow
+  chaseHighLow,
+  randomOneByOne
 };
 
 void setup(){
@@ -98,6 +116,6 @@ void loop(){
    int ranDelay = delays[(random(0,4)];  // picks a random delay from the delay array
 
 // call random function from the array
-    int i = random(3); // update to number of functions+1 0 included 
+    int i = random(4); // update to number of functions+1 0 included 
     (*pattern[i])();
 }
