@@ -26,21 +26,10 @@ int pin16 = A3;
 
 // define all pin arrays here 
 
-// array containing all pins and pin count
 int allPins[] = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16};
-int allPinCount = 16;
-
-// array holding all pins in reverse order
 int allPinsReverse[] = {pin16, pin15, pin14, pin13, pin12, pin11, pin10, pin9, pin8, pin7, pin6, pin5, pin4, pin3, pin2, pin1};
-int allPinsReverseCount = 16;
-
-// array holding all even numbered pins and pin count
 int evenPins[] = {pin2, pin4, pin6, pin8, pin10, pin12, pin14, pin16};
-int enenPinCount = 8;
-
-// array golding all odd pins and pin count
 int oddPins[] = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
-int oddPinCount = 8;
 
 // function definitions below this line, these are the lighting patterns
 
@@ -99,13 +88,15 @@ void (*pattern[])(void) = {
 };
 
 void setup(){
-    for(int i=0; i<allPinCount; i++){
-        pinMode(allPins[i], OUTPUT);
+    for(int i=0; i<16; i++){
+        pinMode(allPins[i], OUTPUT); // initialize all pins as output
      };
 }
 
 void loop(){
-   int loopCount = random(1,6)
+   int loopCount = random(1,6);          // sets a random count for pattern looping
+   int ranDelay = delays[(random(0,4)];  // picks a random delay from the delay array
+
 // call random function from the array
     int i = random(3); // update to number of functions+1 0 included 
     (*pattern[i])();
