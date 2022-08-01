@@ -30,6 +30,10 @@ int pin16 = A3;
 int allPins[] = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16};
 int allPinCount = 16;
 
+// array holding all pins in reverse order
+int allPinsReverse[] = {pin16, pin15, pin14, pin13, pin12, pin11, pin10, pin9, pin8, pin7, pin6, pin5, pin4, pin3, pin2, pin1};
+int allPinsReverseCount = 16;
+
 // array holding all even numbered pins and pin count
 int evenPins[] = {pin2, pin4, pin6, pin8, pin10, pin12, pin14, pin16};
 int enenPinCount = 8;
@@ -47,6 +51,19 @@ void chaseLowHigh(){
             digitalWrite(allPins[i], HIGH);
             delay(d1);
             digitalWrite(allPins[i], LOW);
+            delay(d1);
+            }
+            count++;
+    }
+}
+
+void chaseHighLow(){
+    int count = 0;
+    while (count < 5){
+        for(int i=0; i<16; i++){
+            digitalWrite(allPinsReverse[i], HIGH);
+            delay(d1);
+            digitalWrite(allPinsReverse[i], LOW);
             delay(d1);
             }
             count++;
@@ -77,7 +94,8 @@ void alternateEvenOdd(){
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
   chaseLowHigh,
-  alternateEvenOdd
+  alternateEvenOdd,
+  chaseHighLow
 };
 
 void setup(){
@@ -88,6 +106,6 @@ void setup(){
 
 void loop(){
 // call random function from the array
-    int i = random(2); // update to number of functions+1
+    int i = random(3); // update to number of functions+1
     (*pattern[i])();
 }
