@@ -35,6 +35,7 @@ int oddPins[] = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
 
 void chaseLowHigh(){
    int count = 0;
+   int loopCount = random(1,6);
    while (count < loopCount){
       for(int i=0; i<16; i++){
          digitalWrite(allPins[i], HIGH);
@@ -48,6 +49,7 @@ void chaseLowHigh(){
 
 void chaseHighLow(){
    int count = 0;
+   int loopCount = random(1,6);
    while (count < loopCount){
       for(int i=0; i<16; i++){
          digitalWrite(allPinsReverse[i], HIGH);
@@ -61,6 +63,7 @@ void chaseHighLow(){
 
 void alternateEvenOdd(){
    int count = 0;
+   int loopCount = random(1,6);
    while(count < loopCount){
       for(int i=0; i<8; i++){
          digitalWrite(evenPins[i], HIGH);
@@ -82,6 +85,7 @@ void alternateEvenOdd(){
 
 void randomOneByOne(){
    int count = 0;
+   int ranDelay = delays[(random(0,4))];
    while(count < 16){
       int trigger = random(0,16);
       if(allPins[trigger] == HIGH){
@@ -112,9 +116,6 @@ void setup(){
 }
 
 void loop(){
-   int loopCount = random(1,6);          // sets a random count for pattern looping
-   int ranDelay = delays[(random(0,4)];  // picks a random delay from the delay array
-
 // call random function from the array
     int i = random(4); // update to number of functions+1 0 included 
     (*pattern[i])();
