@@ -30,6 +30,8 @@ int allPins[] = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pi
 int allPinsReverse[] = {pin16, pin15, pin14, pin13, pin12, pin11, pin10, pin9, pin8, pin7, pin6, pin5, pin4, pin3, pin2, pin1};
 int evenPins[] = {pin2, pin4, pin6, pin8, pin10, pin12, pin14, pin16};
 int oddPins[] = {pin1, pin3, pin5, pin7, pin9, pin11, pin13, pin15};
+int eightInFours[] = {pin1, pin2, pin3, pin4, pin9, pin10, pin11, pin12};
+int eightInFours2[] = {pin5, pin6, pin7, pin8, pin13, pin14, pin15, pin16};
 
 // function definitions below this line, these are the lighting patterns
 
@@ -83,6 +85,28 @@ void alternateEvenOdd(){
    }
 }
 
+void alternateFours(){
+   int count = 0;
+   int loopCount = random(1,6);
+   while(count < loopCount){
+      for(int i=0; i<8; i++){
+         digitalWrite(eightInFours[i], HIGH);
+      }
+      delay(d4);
+      for(int i=0; i<8; i++){
+         digitalWrite(eightInFours[i], LOW);
+      }
+      for(int i=0; i<8; i++){
+         digitalWrite(eightInFours2[i], HIGH);
+      }
+      delay(d4);
+      for(int i=0; i<8; i++){
+         digitalWrite(eightInGours2[i], LOW);
+      }
+   count++;
+   }
+}
+
 void randomOneByOne(){
    int count = 0;
    int ranDelay = delays[(random(0,4))];
@@ -106,7 +130,8 @@ void (*pattern[])(void) = {
   chaseLowHigh,
   alternateEvenOdd,
   chaseHighLow,
-  randomOneByOne
+  randomOneByOne,
+  alternateFours
 };
 
 void setup(){
@@ -117,6 +142,6 @@ void setup(){
 
 void loop(){
 // call random function from the array
-    int i = random(4); // update to number of functions+1 0 included 
+    int i = random(5); // update to number of functions+1 0 included 
     (*pattern[i])();
 }
