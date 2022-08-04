@@ -125,13 +125,18 @@ void randomOneByOne(){
    }
 }
 
+void knightRider(){
+   
+}
+
 // Function array for pulling a random member and executing
 void (*pattern[])(void) = {
   chaseLowHigh,
   alternateEvenOdd,
   chaseHighLow,
   randomOneByOne,
-  alternateFours
+  alternateFours,
+  knightRider
 };
 
 void setup(){
@@ -142,6 +147,6 @@ void setup(){
 
 void loop(){
 // call random function from the array
-    int i = random(5); // update to number of functions+1 0 included 
+    int i = random(6); // update to number of functions+1 0 included 
     (*pattern[i])();
 }
