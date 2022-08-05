@@ -126,7 +126,6 @@ void randomOneByOne(){
 }
 
 void knightRider(){
-   
 }
 
 // Function array for pulling a random member and executing
