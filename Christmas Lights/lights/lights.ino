@@ -128,12 +128,14 @@ void randomOneByOne(){
 void knightRider(){
       int ranDelay = delays[(random(0,4))];
       int loopCount = random(1,6);
+      int count = 0
       while(count < loopCount){
          for(int i=0; i<16; i++){
             digitalWrite(allPins[i], HIGH);
             delay(ranDelay);
             digitalWrite(allPins[i], LOW);
             delay(ranDelay);
+            count++;
          }
       }
 }
