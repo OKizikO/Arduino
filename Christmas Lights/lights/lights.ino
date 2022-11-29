@@ -126,16 +126,21 @@ void randomOneByOne(){
 }
 
 void knightRider(){
-      int ranDelay = delays[(random(0,4))];
       int loopCount = random(1,6);
       int count = 0
       while(count < loopCount){
          for(int i=0; i<16; i++){
             digitalWrite(allPins[i], HIGH);
-            delay(ranDelay);
+            delay(d1);
             digitalWrite(allPins[i], LOW);
-            delay(ranDelay);
-            count++;
+            delay(d1);
+         }
+         for(int i=0; i<16; i++){
+            digitalWrite(allPinsReverse[i], HIGH);
+            delay(d1);
+            digitalWrite(allPinsReverse[i], LOW);
+            delay(d1);
+            count++
          }
       }
 }
