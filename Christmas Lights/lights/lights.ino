@@ -127,7 +127,7 @@ void randomOneByOne(){
 
 void knightRider(){
       int loopCount = random(1,6);
-      int count = 0
+      int count = 0;
       while(count < loopCount){
          for(int i=0; i<16; i++){
             digitalWrite(allPins[i], HIGH);
@@ -140,7 +140,7 @@ void knightRider(){
             delay(d1);
             digitalWrite(allPinsReverse[i], LOW);
             delay(d1);
-            count++
+            count++;
          }
       }
 }
